@@ -1,0 +1,13 @@
+C:\Users\Cride\source\repos\Teszt\Teszt\bin\Debug\Teszt.exe.config
+C:\Users\Cride\source\repos\Teszt\Teszt\bin\Debug\Teszt.exe
+C:\Users\Cride\source\repos\Teszt\Teszt\bin\Debug\Teszt.pdb
+C:\Users\Cride\source\repos\Teszt\Teszt\obj\Debug\Teszt.csproj.AssemblyReference.cache
+C:\Users\Cride\source\repos\Teszt\Teszt\obj\Debug\Teszt.csproj.SuggestedBindingRedirects.cache
+C:\Users\Cride\source\repos\Teszt\Teszt\obj\Debug\Teszt.csproj.CoreCompileInputs.cache
+C:\Users\Cride\source\repos\Teszt\Teszt\obj\Debug\Teszt.exe
+C:\Users\Cride\source\repos\Teszt\Teszt\obj\Debug\Teszt.pdb
+C:\Users\Cride\source\repos\Teszt\Teszt\bin\Debug\Memory.dll
+C:\Users\Cride\source\repos\Teszt\Teszt\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Cride\source\repos\Teszt\Teszt\bin\Debug\Memory.xml
+C:\Users\Cride\source\repos\Teszt\Teszt\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Cride\source\repos\Teszt\Teszt\obj\Debug\Teszt.csproj.CopyComplete
