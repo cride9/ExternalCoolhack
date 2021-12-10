@@ -11,3 +11,16 @@ C:\Users\Cride\source\repos\Teszt\Teszt\bin\x86\Debug\CoolHack.exe
 C:\Users\Cride\source\repos\Teszt\Teszt\bin\x86\Debug\CoolHack.pdb
 C:\Users\Cride\source\repos\Teszt\Teszt\obj\x86\Debug\CoolHack.exe
 C:\Users\Cride\source\repos\Teszt\Teszt\obj\x86\Debug\CoolHack.pdb
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\bin\x86\Debug\CoolHack.exe.config
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\bin\x86\Debug\CoolHack.exe
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\bin\x86\Debug\CoolHack.pdb
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\bin\x86\Debug\Memory.dll
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\bin\x86\Debug\System.Security.Principal.Windows.dll
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\bin\x86\Debug\Memory.xml
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\bin\x86\Debug\System.Security.Principal.Windows.xml
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\Teszt.csproj.AssemblyReference.cache
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\Teszt.csproj.SuggestedBindingRedirects.cache
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\Teszt.csproj.CoreCompileInputs.cache
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\Teszt.csproj.CopyComplete
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\CoolHack.exe
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\CoolHack.pdb
