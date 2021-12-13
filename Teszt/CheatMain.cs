@@ -25,59 +25,83 @@ namespace CoolHack {
         public static int localhealth;
         public static int chokedpackets;
         public static int scoped;
+        public static bool menurender;
 
         public static Mem Memory = new Mem();
         static void Main(string[] args) {
 
-            int PID = Memory.GetProcIdFromName("csgo");
+            bool LaunchCSGO = false;
 
-            Thread Main = new Thread(menu.InitializeCheat);
-            Main.Start();
+            getpid:
+            int PID = Memory.GetProcIdFromName("csgo");
 
             if (PID != 0) {
                 Memory.OpenProcess(PID);
 
-                Thread Variables = new Thread(() => ReadVariables()) { IsBackground = true };
-                Variables.Start();
+                Console.WriteLine("PID found!");
+                Thread.Sleep(250);
 
-                Thread Bunnyhop = new Thread(() => bhop.Bhop()) { IsBackground = true };
-                Bunnyhop.Start();
+                Thread Main = new Thread(menu.InitializeCheat);
+                Main.Start();
 
-                Thread Triggerbot = new Thread(() => triggerbot.DoTrigger()) { IsBackground = true };
-                Triggerbot.Start();
+            waitformenu:
+                if (menurender) {
 
-                Thread Glow = new Thread(() => glow.DoGlow()) { IsBackground = true };
-                Glow.Start();
+                    Thread Variables = new Thread(() => ReadVariables()) { IsBackground = true };
+                    Variables.Start();
 
-                Thread Fov = new Thread(() => fov.FovChanger()) { IsBackground = true };
-                Fov.Start();
+                    Thread Bunnyhop = new Thread(() => bhop.Bhop()) { IsBackground = true };
+                    Bunnyhop.Start();
 
-                Thread Fakelag = new Thread(() => fakelag.DoFakelag()) { IsBackground = true };
-                Fakelag.Start();
+                    Thread Triggerbot = new Thread(() => triggerbot.DoTrigger()) { IsBackground = true };
+                    Triggerbot.Start();
 
-                Thread NoFlash = new Thread(() => noflash.RemoveFlash()) { IsBackground = true };
-                NoFlash.Start();
+                    Thread Glow = new Thread(() => glow.DoGlow()) { IsBackground = true };
+                    Glow.Start();
 
-                Thread ThirdPerson = new Thread(() => thirdperson.ThirdPerson()) { IsBackground = true };
-                ThirdPerson.Start();
+                    Thread Fov = new Thread(() => fov.FovChanger()) { IsBackground = true };
+                    Fov.Start();
 
-                //Thread Radar = new Thread(() => radar.Radar()) { IsBackground = true };
-                //Radar.Start();
+                    Thread Fakelag = new Thread(() => fakelag.DoFakelag()) { IsBackground = true };
+                    Fakelag.Start();
 
-                //Thread ConfigSave = new Thread(() => config.SaveConfig()) { IsBackground = true };
-                //ConfigSave.Start();
+                    Thread NoFlash = new Thread(() => noflash.RemoveFlash()) { IsBackground = true };
+                    NoFlash.Start();
 
-                //Thread ConfigLoad = new Thread(() => config.LoadConfig()) { IsBackground = true };
-                //ConfigLoad.Start();
+                    Thread ThirdPerson = new Thread(() => thirdperson.ThirdPerson()) { IsBackground = true };
+                    ThirdPerson.Start();
 
-                //Thread SkinChanger = new Thread(() => skinchanger.ChangeSkin()) { IsBackground = true };
-                //SkinChanger.Start();
+                    //Thread Radar = new Thread(() => radar.Radar()) { IsBackground = true };
+                    //Radar.Start();
+
+                    //Thread ConfigSave = new Thread(() => config.SaveConfig()) { IsBackground = true };
+                    //ConfigSave.Start();
+
+                    //Thread ConfigLoad = new Thread(() => config.LoadConfig()) { IsBackground = true };
+                    //ConfigLoad.Start();
+
+                    //Thread SkinChanger = new Thread(() => skinchanger.ChangeSkin()) { IsBackground = true };
+                    //SkinChanger.Start();
+                }
+                else
+                    goto waitformenu;
+
             }
             else {
                 Console.Clear();
-                Console.WriteLine("Process not found (csgo.exe)");
-                Thread.Sleep(5000);
-                return;
+                Console.WriteLine("PID not found!\n");
+
+                Thread.Sleep(250);
+
+                Console.WriteLine("Starting csgo...");
+
+                if (!LaunchCSGO)
+                    System.Diagnostics.Process.Start("steam://run/730");
+
+                LaunchCSGO = true;
+                Thread.Sleep(30000);
+
+                goto getpid;
             }
         }
 

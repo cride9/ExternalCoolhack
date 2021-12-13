@@ -43,6 +43,8 @@ namespace CoolHack {
             MainMenu.Add(new Menu() { ElementName = "No Flash", ElementState = false });
             MainMenu.Add(new Menu() { ElementName = "Thirdperson (Q)", ElementState = false });
             //MainMenu.Add(new Menu() { ElementName = "Radar", ElementState = false });
+
+            CheatMain.menurender = true;
         }
 
         public static void InitializeCheat() {
@@ -76,11 +78,14 @@ namespace CoolHack {
 
                 case ConsoleKey.F1: {
                         config.SaveConfig();
+                        MenuRender();
+                        Console.WriteLine("Config Saved!");
                     }
                     break;
                 case ConsoleKey.F2: {
                         config.LoadConfig();
                         MenuRender();
+                        Console.WriteLine("Config Loaded!");
                     }
                     break;
             }

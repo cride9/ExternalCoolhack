@@ -1,6 +1,6 @@
 ﻿using System;
 
-// 2021-11-23 09:49:52.688958900 UTC
+// 2021-12-12
 
 namespace hazedumper {
     public static class netvars {

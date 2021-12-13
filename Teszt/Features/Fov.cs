@@ -11,9 +11,6 @@ namespace CoolHack {
 
             while (true) {
 
-                if (!menu.MainMenu[3].ElementState)
-                    continue;
-
                 if (CheatMain.scoped == 0) {
 
                     //m_zoomlevel == 1 ; 40
