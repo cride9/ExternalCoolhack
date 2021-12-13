@@ -31,6 +31,7 @@ namespace CoolHack {
             }
             Console.WriteLine("\n\nSave config: F1");
             Console.WriteLine("Load config: F2");
+            Console.WriteLine("Reload Skins: F3");
         }
 
         private static void InitializeMenu() {
@@ -86,6 +87,10 @@ namespace CoolHack {
                         config.LoadConfig();
                         MenuRender();
                         Console.WriteLine("Config Loaded!");
+                    }
+                    break;
+                case ConsoleKey.F3: {
+                        CheatMain.Memory.WriteMemory($"engine.dll+{CheatMain.ReadHex(hazedumper.signatures.dwClientState)},{CheatMain.ReadHex(hazedumper.signatures.clientstate_delta_ticks)}", "int", "-1");
                     }
                     break;
             }

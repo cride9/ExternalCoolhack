@@ -225,7 +225,7 @@ namespace CoolHack {
 		private static void SetSkin(int skinid) {
 
 			// uhm it shouldn't work bcs												POINTER HERE
-			int CurrentSkin = CheatMain.Memory.ReadInt($"{CheatMain.ReadHex(EntityList)},{CheatMain.ReadHex(hazedumper.netvars.m_nFallbackPaintKit)}");
+			int CurrentSkin = CheatMain.Memory.ReadInt($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_nFallbackPaintKit)}");
 
 			if (CurrentSkin != skinid) {
 																	// but not here... wtf?
@@ -235,8 +235,6 @@ namespace CoolHack {
 				else
 					CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_flFallbackWear)}", "float", $"{0.0001f}");
 				CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_nFallbackPaintKit)}", "int", $"{skinid}");
-
-				CheatMain.Memory.WriteMemory($"client.dll+{CheatMain.ReadHex(hazedumper.signatures.dwClientState + 0x0174)}", "int", "-1");
 			}
 		}
 	}
