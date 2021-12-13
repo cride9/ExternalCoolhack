@@ -80,8 +80,8 @@ namespace CoolHack {
                     //Thread ConfigLoad = new Thread(() => config.LoadConfig()) { IsBackground = true };
                     //ConfigLoad.Start();
 
-                    //Thread SkinChanger = new Thread(() => skinchanger.ChangeSkin()) { IsBackground = true };
-                    //SkinChanger.Start();
+                    Thread SkinChanger = new Thread(() => skinchanger.SkinChanger()) { IsBackground = true };
+                    SkinChanger.Start();
                 }
                 else
                     goto waitformenu;
