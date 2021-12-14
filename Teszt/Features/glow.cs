@@ -26,6 +26,8 @@ namespace CoolHack {
 
             while (true) {
 
+                Thread.Sleep(1);
+
                 if (menu.MainMenu[1].ElementState) {
 
                     for (int i = 0; i < 32; i++) {

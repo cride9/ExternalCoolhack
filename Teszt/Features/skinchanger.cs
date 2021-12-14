@@ -113,10 +113,10 @@ namespace CoolHack {
 							SetSkin(586);
 							break;
 						case (int)WeaponIDs.WEAPON_USP:
-							SetSkin(653);
+							SetSkin(504);
 							break;
 						case (int)WeaponIDs.WEAPON_AK47:
-							SetSkin(380);
+							SetSkin(302);
 							break;
 						case (int)WeaponIDs.WEAPON_AUG:
 							SetSkin(305);
@@ -143,7 +143,7 @@ namespace CoolHack {
 							SetSkin(648);
 							break;
 						case (int)WeaponIDs.WEAPON_M4A1:
-							SetSkin(430);
+							SetSkin(309);
 							break;
 						case (int)WeaponIDs.WEAPON_MAC10:
 							SetSkin(433);
@@ -167,7 +167,7 @@ namespace CoolHack {
 							SetSkin(624);
 							break;
 						case (int)WeaponIDs.WEAPON_UMP45:
-							SetSkin(175);
+							SetSkin(556);
 							break;
 						case (int)WeaponIDs.WEAPON_XM1014:
 							SetSkin(320);
@@ -209,10 +209,20 @@ namespace CoolHack {
 							SetSkin(597);
 							break;
 						case (int)WeaponIDs.WEAPON_SG556:
-							SetSkin(624);
+							SetSkin(598);
 							break;
 						case (int)WeaponIDs.WEAPON_SSG08:
 							SetSkin(624);
+							break;
+
+						case 61: // usp-s
+							SetSkin(504);
+							break;
+						case 63: // cz-auto
+							SetSkin(687);
+							break;
+						case 60: // m4a1-s
+							SetSkin(644);
 							break;
 						default:
 							SetSkin(0);
@@ -224,11 +234,10 @@ namespace CoolHack {
         }
 		private static void SetSkin(int skinid) {
 
-			// uhm it shouldn't work bcs												POINTER HERE
 			int CurrentSkin = CheatMain.Memory.ReadInt($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_nFallbackPaintKit)}");
 
 			if (CurrentSkin != skinid) {
-																	// but not here... wtf?
+
 				CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_iItemIDHigh)}", "int", $"{-1}");
 				if (skinid == 279)
 					CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_flFallbackWear)}", "float", $"{0.9999f}");

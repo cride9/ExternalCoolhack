@@ -16,6 +16,8 @@ namespace CoolHack {
 
             while (true) {
 
+                Thread.Sleep(1);
+
                 if (menu.MainMenu[2].ElementState && CheatMain.GetAsyncKeyState(Keys.E) < 0) {
 
                     if (CheatMain.local == 0 || CheatMain.localhealth < 1)
