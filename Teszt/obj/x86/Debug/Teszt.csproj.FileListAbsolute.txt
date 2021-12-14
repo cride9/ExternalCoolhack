@@ -23,3 +23,4 @@ C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\Teszt.cspro
 C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\Teszt.csproj.CopyComplete
 C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\CoolHack.exe
 C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\CoolHack.pdb
+C:\Users\Cride\Documents\GitHub\ExternalCoolhack\Teszt\obj\x86\Debug\Teszt.csproj.AssemblyReference.cache

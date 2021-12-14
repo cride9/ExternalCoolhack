@@ -7,22 +7,27 @@ using System.Threading.Tasks;
 namespace CoolHack {
 	enum KnifeIDs {
 
-		WEAPON_KNIFE = 42,
 		WEAPON_KNIFE_T = 59,
-		WEAPON_KNIFE_BAYONET = 500,         // 0
-		WEAPON_KNIFE_FLIP = 505,            // 1
-		WEAPON_KNIFE_GUT = 506,             // 2
-		WEAPON_KNIFE_KARAMBIT = 507,        // 3
-		WEAPON_KNIFE_M9_BAYONET = 508,      // 4
-		WEAPON_KNIFE_TACTICAL = 509,        // 5
-		WEAPON_KNIFE_FALCHION = 512,        // 6
-		WEAPON_KNIFE_SURVIVAL_BOWIE = 514,  // 7
-		WEAPON_KNIFE_BUTTERFLY = 515,       // 8
-		WEAPON_KNIFE_PUSH = 516,            // 9
-		WEAPON_KNIFE_URSUS = 519,           // 10
-		WEAPON_KNIFE_GYPSY_JACKKNIFE = 520, // 11
-		WEAPON_KNIFE_STILETTO = 522,		// 12
-		WEAPON_KNIFE_WIDOWMAKER = 523       // 13
+		WEAPON_KNIFE_CT = 42,
+		WEAPON_KNIFE_KARAM = 507,
+		WEAPON_KNIFE_BAYONET = 500,
+		WEAPON_KNIFE_CLASSIC = 503,
+		WEAPON_KNIFE_FLIP = 505,
+		WEAPON_KNIFE_GUT = 506,
+		WEAPON_KNIFE_M9 = 508,
+		WEAPON_KNIFE_HUNTSMAN = 509,
+		WEAPON_KNIFE_FALCHION = 512,
+		WEAPON_KNIFE_BOWIE = 514,
+		WEAPON_KNIFE_BUTTERFLY = 515,
+		WEAPON_KNIFE_DAGGERS = 516,
+		WEAPON_KNIFE_PARACORD = 517,
+		WEAPON_KNIFE_SURVIVAL = 518,
+		WEAPON_KNIFE_URSUS = 519,
+		WEAPON_KNIFE_NAVAJA = 520,
+		WEAPON_KNIFE_NOMAD = 521,
+		WEAPON_KNIFE_STILETTO = 522,
+		WEAPON_KNIFE_TALON = 523,
+		WEAPON_KNIFE_SKELETON = 525,
 	}
 	enum WeaponIDs {
 		WEAPON_NONE,
@@ -83,6 +88,139 @@ namespace CoolHack {
 		static int EntityList;
 		static int CurrentWeaponID;
 
+		private static void GetSkin(int WeaponID) {
+
+			switch (WeaponID) {
+				case (int)WeaponIDs.WEAPON_DEAGLE:
+					SetSkin(328);
+					break;
+				case (int)WeaponIDs.WEAPON_ELITE:
+					SetSkin(491);
+					break;
+				case (int)WeaponIDs.WEAPON_FIVESEVEN:
+					SetSkin(660);
+					break;
+				case (int)WeaponIDs.WEAPON_GLOCK:
+					SetSkin(586);
+					break;
+				case (int)WeaponIDs.WEAPON_USP:
+					SetSkin(504);
+					break;
+				case (int)WeaponIDs.WEAPON_AK47:
+					SetSkin(302);
+					break;
+				case (int)WeaponIDs.WEAPON_AUG:
+					SetSkin(305);
+					break;
+				case (int)WeaponIDs.WEAPON_AWP:
+					SetSkin(279);
+					break;
+				case (int)WeaponIDs.WEAPON_FAMAS:
+					SetSkin(178);
+					break;
+				case (int)WeaponIDs.WEAPON_G3SG1:
+					SetSkin(493);
+					break;
+				case (int)WeaponIDs.WEAPON_GALIL:
+					SetSkin(379);
+					break;
+				case (int)WeaponIDs.WEAPON_GALILAR:
+					SetSkin(379);
+					break;
+				case (int)WeaponIDs.WEAPON_M249:
+					SetSkin(648);
+					break;
+				case (int)WeaponIDs.WEAPON_M3:
+					SetSkin(648);
+					break;
+				case (int)WeaponIDs.WEAPON_M4A1:
+					SetSkin(309);
+					break;
+				case (int)WeaponIDs.WEAPON_MAC10:
+					SetSkin(433);
+					break;
+				case (int)WeaponIDs.WEAPON_MP5NAVY:
+					SetSkin(433);
+					break;
+				case (int)WeaponIDs.WEAPON_P90:
+					SetSkin(359);
+					break;
+				case (int)WeaponIDs.WEAPON_SCOUT:
+					SetSkin(624);
+					break;
+				case (int)WeaponIDs.WEAPON_SG550:
+					SetSkin(624);
+					break;
+				case (int)WeaponIDs.WEAPON_SG552:
+					SetSkin(624);
+					break;
+				case (int)WeaponIDs.WEAPON_TMP:
+					SetSkin(624);
+					break;
+				case (int)WeaponIDs.WEAPON_UMP45:
+					SetSkin(556);
+					break;
+				case (int)WeaponIDs.WEAPON_XM1014:
+					SetSkin(320);
+					break;
+				case (int)WeaponIDs.WEAPON_BIZON:
+					SetSkin(236);
+					break;
+				case (int)WeaponIDs.WEAPON_MAG7:
+					SetSkin(703);
+					break;
+				case (int)WeaponIDs.WEAPON_NEGEV:
+					SetSkin(432);
+					break;
+				case (int)WeaponIDs.WEAPON_SAWEDOFF:
+					SetSkin(517);
+					break;
+				case (int)WeaponIDs.WEAPON_TEC9:
+					SetSkin(614);
+					break;
+				case (int)WeaponIDs.WEAPON_HKP2000:
+					SetSkin(287);
+					break;
+				case (int)WeaponIDs.WEAPON_MP7:
+					SetSkin(696);
+					break;
+				case (int)WeaponIDs.WEAPON_MP9:
+					SetSkin(482);
+					break;
+				case (int)WeaponIDs.WEAPON_NOVA:
+					SetSkin(537);
+					break;
+				case (int)WeaponIDs.WEAPON_P250:
+					SetSkin(551);
+					break;
+				case (int)WeaponIDs.WEAPON_SCAR17:
+					SetSkin(597);
+					break;
+				case (int)WeaponIDs.WEAPON_SCAR20:
+					SetSkin(597);
+					break;
+				case (int)WeaponIDs.WEAPON_SG556:
+					SetSkin(598);
+					break;
+				case (int)WeaponIDs.WEAPON_SSG08:
+					SetSkin(624);
+					break;
+				case 61: // usp-s
+					SetSkin(504);
+					break;
+				case 63: // cz-auto
+					SetSkin(687);
+					break;
+				case 60: // m4a1-s
+					SetSkin(644);
+					break;
+				default:
+					SetSkin(0);
+					break;
+
+			}
+		}
+
 		public static void SkinChanger() {
 
 			while (true) {
@@ -92,6 +230,9 @@ namespace CoolHack {
 
 				for (int i = 0; i < 3; i++) {
 
+					// Shadow Daggers: 516
+					// Karambit: 507
+
 					WeaponIndex = CheatMain.Memory.Read2Byte($"{CheatMain.ReadHex(CheatMain.local)}+{CheatMain.ReadHex(hazedumper.netvars.m_hMyWeapons + i * 0x4)}") & 0xfff;
 					EntityList = CheatMain.Memory.ReadInt($"client.dll+{CheatMain.ReadHex(hazedumper.signatures.dwEntityList + (WeaponIndex - 1) * 0x10)}");
 					CurrentWeaponID = CheatMain.Memory.Read2Byte($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_iItemDefinitionIndex)}");
@@ -99,136 +240,8 @@ namespace CoolHack {
 					// Im pretty sure it's outdated but here you go
 					// Skin ID list: https://steamcommunity.com/sharedfiles/filedetails/?id=880595913
 
-					switch (CurrentWeaponID) {
-						case (int)WeaponIDs.WEAPON_DEAGLE:
-							SetSkin(328);
-							break;
-						case (int)WeaponIDs.WEAPON_ELITE:
-							SetSkin(491);
-							break;
-						case (int)WeaponIDs.WEAPON_FIVESEVEN:
-							SetSkin(660);
-							break;
-						case (int)WeaponIDs.WEAPON_GLOCK:
-							SetSkin(586);
-							break;
-						case (int)WeaponIDs.WEAPON_USP:
-							SetSkin(504);
-							break;
-						case (int)WeaponIDs.WEAPON_AK47:
-							SetSkin(302);
-							break;
-						case (int)WeaponIDs.WEAPON_AUG:
-							SetSkin(305);
-							break;
-						case (int)WeaponIDs.WEAPON_AWP:
-							SetSkin(279);
-							break;
-						case (int)WeaponIDs.WEAPON_FAMAS:
-							SetSkin(178);
-							break;
-						case (int)WeaponIDs.WEAPON_G3SG1:
-							SetSkin(493);
-							break;
-						case (int)WeaponIDs.WEAPON_GALIL:
-							SetSkin(379);
-							break;
-						case (int)WeaponIDs.WEAPON_GALILAR:
-							SetSkin(379);
-							break;
-						case (int)WeaponIDs.WEAPON_M249:
-							SetSkin(648);
-							break;
-						case (int)WeaponIDs.WEAPON_M3:
-							SetSkin(648);
-							break;
-						case (int)WeaponIDs.WEAPON_M4A1:
-							SetSkin(309);
-							break;
-						case (int)WeaponIDs.WEAPON_MAC10:
-							SetSkin(433);
-							break;
-						case (int)WeaponIDs.WEAPON_MP5NAVY:
-							SetSkin(433);
-							break;
-						case (int)WeaponIDs.WEAPON_P90:
-							SetSkin(359);
-							break;
-						case (int)WeaponIDs.WEAPON_SCOUT:
-							SetSkin(624);
-							break;
-						case (int)WeaponIDs.WEAPON_SG550:
-							SetSkin(624);
-							break;
-						case (int)WeaponIDs.WEAPON_SG552:
-							SetSkin(624);
-							break;
-						case (int)WeaponIDs.WEAPON_TMP:
-							SetSkin(624);
-							break;
-						case (int)WeaponIDs.WEAPON_UMP45:
-							SetSkin(556);
-							break;
-						case (int)WeaponIDs.WEAPON_XM1014:
-							SetSkin(320);
-							break;
-						case (int)WeaponIDs.WEAPON_BIZON:
-							SetSkin(236);
-							break;
-						case (int)WeaponIDs.WEAPON_MAG7:
-							SetSkin(703);
-							break;
-						case (int)WeaponIDs.WEAPON_NEGEV:
-							SetSkin(432);
-							break;
-						case (int)WeaponIDs.WEAPON_SAWEDOFF:
-							SetSkin(517);
-							break;
-						case (int)WeaponIDs.WEAPON_TEC9:
-							SetSkin(614);
-							break;
-						case (int)WeaponIDs.WEAPON_HKP2000:
-							SetSkin(287);
-							break;
-						case (int)WeaponIDs.WEAPON_MP7:
-							SetSkin(696);
-							break;
-						case (int)WeaponIDs.WEAPON_MP9:
-							SetSkin(482);
-							break;
-						case (int)WeaponIDs.WEAPON_NOVA:
-							SetSkin(537);
-							break;
-						case (int)WeaponIDs.WEAPON_P250:
-							SetSkin(551);
-							break;
-						case (int)WeaponIDs.WEAPON_SCAR17:
-							SetSkin(597);
-							break;
-						case (int)WeaponIDs.WEAPON_SCAR20:
-							SetSkin(597);
-							break;
-						case (int)WeaponIDs.WEAPON_SG556:
-							SetSkin(598);
-							break;
-						case (int)WeaponIDs.WEAPON_SSG08:
-							SetSkin(624);
-							break;
+					GetSkin(CurrentWeaponID);
 
-						case 61: // usp-s
-							SetSkin(504);
-							break;
-						case 63: // cz-auto
-							SetSkin(687);
-							break;
-						case 60: // m4a1-s
-							SetSkin(644);
-							break;
-						default:
-							SetSkin(0);
-							break;
-
-					}
 				}
 			}
         }
@@ -244,6 +257,8 @@ namespace CoolHack {
 				else
 					CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_flFallbackWear)}", "float", $"{0.0001f}");
 				CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(EntityList)}+{CheatMain.ReadHex(hazedumper.netvars.m_nFallbackPaintKit)}", "int", $"{skinid}");
+
+				CheatMain.Memory.WriteMemory($"engine.dll+{CheatMain.ReadHex(hazedumper.signatures.dwClientState)},{CheatMain.ReadHex(hazedumper.signatures.clientstate_delta_ticks)}", "int", "-1");
 			}
 		}
 	}
