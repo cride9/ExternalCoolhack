@@ -15,12 +15,6 @@ namespace CoolHack {
 
         static string Client = "client.dll+";
         static string GlowObjectManager = Client + CheatMain.ReadHex(hazedumper.signatures.dwGlowObjectManager) + ",";
-        static int GlowIndex;
-        static int BaseEntity;
-        static int EntityTeam;
-        static int EntityHP;
-        static int Dormant;
-        static int LocalTeam;
 
         public static void DoGlow() {
 
@@ -32,25 +26,18 @@ namespace CoolHack {
 
                     for (int i = 0; i < 32; i++) {
 
-                        //SetupPlayer(i);
+                        Entity BaseEntity = CheatMain.GetEntitybyIndex(i);
+                        Entity Local = new Entity() { ID = CheatMain.local };
 
-                        BaseEntity = CheatMain.GetEntitybyIndex(i);
-
-                        if (BaseEntity == 0) 
+                        if (BaseEntity.ID == 0) 
                             continue;
 
-                        EntityHP = m.ReadInt($"{CheatMain.ReadHex(BaseEntity)}+{CheatMain.ReadHex(hazedumper.netvars.m_iHealth)}");
-                        Dormant = m.ReadInt($"{CheatMain.ReadHex(BaseEntity)}+{CheatMain.ReadHex(hazedumper.signatures.m_bDormant)}");
-
-                        if (Dormant == 1 || EntityHP < 1)
+                        if (BaseEntity.m_bDormant()|| BaseEntity.m_iHealth() < 1)
                             continue;
 
-                        EntityTeam = m.ReadInt($"{CheatMain.ReadHex(BaseEntity)}+{CheatMain.ReadHex(hazedumper.netvars.m_iTeamNum)}");
-                        LocalTeam = m.ReadInt($"{CheatMain.ReadHex(CheatMain.local)}+{CheatMain.ReadHex(hazedumper.netvars.m_iTeamNum)}");
+                        if (Local.m_iTeamNum() != BaseEntity.m_iTeamNum()) {
 
-                        if (LocalTeam != EntityTeam) {
-                            GlowIndex = m.ReadInt($"{CheatMain.ReadHex(BaseEntity)}+{CheatMain.ReadHex(hazedumper.netvars.m_iGlowIndex)}");
-                            Draw(GlowIndex, 115, 118, 201, 160);
+                            Draw(BaseEntity.m_iGlowIndex(), 115, 118, 201, 160);
                         }
                     }
                 }

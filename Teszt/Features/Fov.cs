@@ -10,11 +10,12 @@ namespace CoolHack {
     internal class fov {
         public static void FovChanger() {
 
-            while (true) {
+            Entity pLocal = new Entity() { ID = CheatMain.local};
 
+            while (true) {
                 Thread.Sleep(1);
 
-                if (CheatMain.scoped == 0) {
+                if (!pLocal.m_bIsScoped()) {
 
                     //m_zoomlevel == 1 ; 40
                     //m_zoomlevel == 2 ; 15

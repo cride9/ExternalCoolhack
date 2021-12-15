@@ -22,10 +22,12 @@ namespace CoolHack {
 
                     if (CheatMain.GetAsyncKeyState(Keys.Space) < 0) { // while pressing the space
 
-                        if (CheatMain.local == 0 || CheatMain.localhealth < 1)
+                        Entity pLocal = new Entity() { ID = CheatMain.local };
+
+                        if (pLocal.ID == 0 || pLocal.m_iHealth() < 1)
                             continue;
 
-                        Jumping = m.ReadInt($"{CheatMain.ReadHex(CheatMain.local)}+{CheatMain.ReadHex(hazedumper.netvars.m_fFlags)}");
+                        Jumping = pLocal.m_fFlags();
 
                         if (Jumping == 257 || Jumping == 263) { // on ground
 

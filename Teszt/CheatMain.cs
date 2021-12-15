@@ -24,7 +24,6 @@ namespace CoolHack {
         public static int local;
         public static int localhealth;
         public static int chokedpackets;
-        public static int scoped;
         public static bool menurender;
 
         public static Mem Memory = new Mem();
@@ -112,13 +111,12 @@ namespace CoolHack {
                 localhealth = Memory.ReadInt($"{ReadHex(local)}+{ReadHex(hazedumper.netvars.m_iHealth)}");
                 if (local != 0 && localhealth > 1) {
                     chokedpackets = Memory.ReadByte($"engine.dll+{ReadHex(hazedumper.signatures.dwClientState)},{ReadHex(hazedumper.signatures.clientstate_choked_commands)}");
-                    scoped = Memory.ReadInt($"{ReadHex(local)}+{ReadHex(hazedumper.netvars.m_bIsScoped)}");
                 }
             }
         }
-        public static int GetEntitybyIndex(int index) {
+        public static Entity GetEntitybyIndex(int index) {
 
-            return Memory.ReadInt($"client.dll+{ReadHex(hazedumper.signatures.dwEntityList + index * 0x10)}");
+            return new Entity() { ID = Memory.ReadInt($"client.dll+{ReadHex(hazedumper.signatures.dwEntityList + index * 0x10)}") };
         }
         public static void bSendPacket(bool input) {
 

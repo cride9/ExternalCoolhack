@@ -88,6 +88,7 @@
     <Compile Include="Features\skinchanger.cs" />
     <Compile Include="Features\thirdperson.cs" />
     <Compile Include="Features\triggerbot.cs" />
+    <Compile Include="SDK\Entity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Clean Folder\App.config" />

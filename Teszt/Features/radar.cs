@@ -16,18 +16,16 @@ namespace CoolHack {
 
                 for (int i = 0; i < 64; i++) {
 
-                    var Entity = CheatMain.GetEntitybyIndex(i);
+                    Entity pEnt = CheatMain.GetEntitybyIndex(i);
 
-                    if (Entity == 0)
+                    if (pEnt.ID == 0)
                         continue;
 
-                    if (CheatMain.Memory.ReadInt($"{CheatMain.ReadHex(Entity)}+{CheatMain.ReadHex(hazedumper.netvars.m_iHealth)}") < 1)
+                    if (pEnt.m_iHealth() < 1)
                         continue;
 
-                    if (CheatMain.Memory.ReadInt($"{CheatMain.ReadHex(Entity)}+{CheatMain.ReadHex(hazedumper.signatures.m_bDormant)}") == 1)
+                    if (pEnt.m_bDormant())
                         continue;
-
-                    CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(Entity)}+{CheatMain.ReadHex(hazedumper.netvars.m_bSpotted)}", "int", "0");
 
                 }
             }
