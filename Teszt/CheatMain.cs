@@ -22,11 +22,52 @@ namespace CoolHack {
 
 
         public static int local;
-        public static int localhealth;
-        public static int chokedpackets;
         public static bool menurender;
 
         public static Mem Memory = new Mem();
+
+        public static void RunThread(int i) {
+
+            switch (i) {
+
+                case 0:
+                    Thread Bhop = new Thread(() => bhop.Bhop()) { IsBackground = true };
+                    Bhop.Start();
+                    break;
+
+                case 1:
+                    Thread Glow = new Thread(() => glow.DoGlow()) { IsBackground = true };
+                    Glow.Start();
+                    break;
+
+                case 2:
+                    Thread Triggerbot = new Thread(() => triggerbot.DoTrigger()) { IsBackground = true };
+                    Triggerbot.Start();
+                    break;
+
+                case 3:
+                    Thread Fov = new Thread(() => fov.FovChanger()) { IsBackground = true };
+                    Fov.Start();
+                    break;
+
+                case 4:
+                    Thread Fakelag = new Thread(() => fakelag.DoFakelag()) { IsBackground = true };
+                    Fakelag.Start();
+                    break;
+
+                case 5:
+                    Thread NoFlash = new Thread(() => noflash.RemoveFlash()) { IsBackground = true };
+                    NoFlash.Start();
+                    break;
+
+                case 6:
+                    Thread ThirdPerson = new Thread(() => thirdperson.ThirdPerson()) { IsBackground = true };
+                    ThirdPerson.Start();
+                    break;
+            }
+
+        }
+
         static void Main(string[] args) {
 
             bool LaunchCSGO = false;
@@ -48,36 +89,6 @@ namespace CoolHack {
 
                     Thread Variables = new Thread(() => ReadVariables()) { IsBackground = true };
                     Variables.Start();
-
-                    Thread Bunnyhop = new Thread(() => bhop.Bhop()) { IsBackground = true };
-                    Bunnyhop.Start();
-
-                    Thread Triggerbot = new Thread(() => triggerbot.DoTrigger()) { IsBackground = true };
-                    Triggerbot.Start();
-
-                    Thread Glow = new Thread(() => glow.DoGlow()) { IsBackground = true };
-                    Glow.Start();
-
-                    Thread Fov = new Thread(() => fov.FovChanger()) { IsBackground = true };
-                    Fov.Start();
-
-                    Thread Fakelag = new Thread(() => fakelag.DoFakelag()) { IsBackground = true };
-                    Fakelag.Start();
-
-                    Thread NoFlash = new Thread(() => noflash.RemoveFlash()) { IsBackground = true };
-                    NoFlash.Start();
-
-                    Thread ThirdPerson = new Thread(() => thirdperson.ThirdPerson()) { IsBackground = true };
-                    ThirdPerson.Start();
-
-                    //Thread Radar = new Thread(() => radar.Radar()) { IsBackground = true };
-                    //Radar.Start();
-
-                    //Thread ConfigSave = new Thread(() => config.SaveConfig()) { IsBackground = true };
-                    //ConfigSave.Start();
-
-                    //Thread ConfigLoad = new Thread(() => config.LoadConfig()) { IsBackground = true };
-                    //ConfigLoad.Start();
 
                     Thread SkinChanger = new Thread(() => skinchanger.SkinChanger()) { IsBackground = true };
                     SkinChanger.Start();
@@ -105,14 +116,8 @@ namespace CoolHack {
         }
 
         public static void ReadVariables() {
-            while (true) {
 
-                local = Memory.ReadInt($"client.dll+{ReadHex(hazedumper.signatures.dwLocalPlayer)}");
-                localhealth = Memory.ReadInt($"{ReadHex(local)}+{ReadHex(hazedumper.netvars.m_iHealth)}");
-                if (local != 0 && localhealth > 1) {
-                    chokedpackets = Memory.ReadByte($"engine.dll+{ReadHex(hazedumper.signatures.dwClientState)},{ReadHex(hazedumper.signatures.clientstate_choked_commands)}");
-                }
-            }
+            local = Memory.ReadInt($"client.dll+{ReadHex(hazedumper.signatures.dwLocalPlayer)}");
         }
         public static Entity GetEntitybyIndex(int index) {
 

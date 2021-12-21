@@ -18,25 +18,27 @@ namespace CoolHack {
 
             while (true) {
 
-                if (menu.MainMenu[0].ElementState) {
+                if (!menu.MainMenu[0].ElementState)
+                    return;
 
-                    if (CheatMain.GetAsyncKeyState(Keys.Space) < 0) { // while pressing the space
+                Thread.Sleep(1);
 
-                        Entity pLocal = new Entity() { ID = CheatMain.local };
+                if (CheatMain.GetAsyncKeyState(Keys.Space) < 0) { // while pressing the space
 
-                        if (pLocal.ID == 0 || pLocal.m_iHealth() < 1)
-                            continue;
+                    Entity pLocal = new Entity() { ID = CheatMain.local };
 
-                        Jumping = pLocal.m_fFlags();
+                    if (pLocal.ID == 0 || pLocal.m_iHealth() < 1)
+                        continue;
 
-                        if (Jumping == 257 || Jumping == 263) { // on ground
+                    Jumping = pLocal.m_fFlags();
 
-                            // 4 - not jumping
-                            // 5 - jumping
-                            m.WriteMemory($"client.dll+{CheatMain.ReadHex(hazedumper.signatures.dwForceJump)}", "int", "5");
-                            Thread.Sleep(20);
-                            m.WriteMemory($"client.dll+{CheatMain.ReadHex(hazedumper.signatures.dwForceJump)}", "int", "4");
-                        }
+                    if (Jumping == 257 || Jumping == 263) { // on ground
+
+                        // 4 - not jumping
+                        // 5 - jumping
+                        m.WriteMemory($"client.dll+{CheatMain.ReadHex(hazedumper.signatures.dwForceJump)}", "int", "5");
+                        Thread.Sleep(20);
+                        m.WriteMemory($"client.dll+{CheatMain.ReadHex(hazedumper.signatures.dwForceJump)}", "int", "4");
                     }
                 }
             }

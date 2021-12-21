@@ -21,6 +21,7 @@ namespace CoolHack {
                 if (input == i) {
                     if (change) {
                         MainMenu[i].ElementState = !MainMenu[i].ElementState;
+                        CheatMain.RunThread(i);
                         change = false;
                     }
                     Console.WriteLine($"<{MainMenu[i]}>");

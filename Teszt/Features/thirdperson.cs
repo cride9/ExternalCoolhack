@@ -14,7 +14,7 @@ namespace CoolHack {
             while (true) {
 
                 if (!menu.MainMenu[6].ElementState)
-                    continue;
+                    return;
 
                 if (CheatMain.GetAsyncKeyState(System.Windows.Forms.Keys.Q) < 0) {
                     thirdperson = !thirdperson;

@@ -10,16 +10,12 @@ namespace CoolHack {
 
             while (true) {
 
-                if (CheatMain.local == 0)
-                    continue;
-
-                if (menu.MainMenu[5].ElementState) {
-
-                    CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(CheatMain.local)}+{CheatMain.ReadHex(hazedumper.netvars.m_flFlashMaxAlpha)}", "float", "51");
-                }
-                else {
+                if (!menu.MainMenu[5].ElementState) {
                     CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(CheatMain.local)}+{CheatMain.ReadHex(hazedumper.netvars.m_flFlashMaxAlpha)}", "float", "255");
+                    return;
                 }
+
+                CheatMain.Memory.WriteMemory($"{CheatMain.ReadHex(CheatMain.local)}+{CheatMain.ReadHex(hazedumper.netvars.m_flFlashMaxAlpha)}", "float", "51");
             }
         }
     }

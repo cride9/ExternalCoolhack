@@ -225,7 +225,9 @@ namespace CoolHack {
 
 			while (true) {
 
-				if (CheatMain.local == 0 || CheatMain.localhealth < 1)
+				Entity pLocal = new Entity() { ID = CheatMain.local };
+
+				if (pLocal.ID == 0 || pLocal.m_iHealth() < 1)
 					continue;
 
 				for (int i = 0; i < 3; i++) {

@@ -20,25 +20,25 @@ namespace CoolHack {
 
             while (true) {
 
+                if (!menu.MainMenu[1].ElementState)
+                    return;
+
                 Thread.Sleep(1);
 
-                if (menu.MainMenu[1].ElementState) {
+                for (int i = 0; i < 32; i++) {
 
-                    for (int i = 0; i < 32; i++) {
+                    Entity BaseEntity = CheatMain.GetEntitybyIndex(i);
+                    Entity Local = new Entity() { ID = CheatMain.local };
 
-                        Entity BaseEntity = CheatMain.GetEntitybyIndex(i);
-                        Entity Local = new Entity() { ID = CheatMain.local };
+                    if (BaseEntity.ID == 0)
+                        continue;
 
-                        if (BaseEntity.ID == 0) 
-                            continue;
+                    if (BaseEntity.m_bDormant() || BaseEntity.m_iHealth() < 1)
+                        continue;
 
-                        if (BaseEntity.m_bDormant()|| BaseEntity.m_iHealth() < 1)
-                            continue;
+                    if (Local.m_iTeamNum() != BaseEntity.m_iTeamNum()) {
 
-                        if (Local.m_iTeamNum() != BaseEntity.m_iTeamNum()) {
-
-                            Draw(BaseEntity.m_iGlowIndex(), 115, 118, 201, 160);
-                        }
+                        Draw(BaseEntity.m_iGlowIndex(), 115, 118, 201, 160);
                     }
                 }
             }

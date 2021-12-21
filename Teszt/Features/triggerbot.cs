@@ -16,11 +16,15 @@ namespace CoolHack {
 
             while (true) {
 
+                if (!menu.MainMenu[2].ElementState)
+                    return;
+
+                Entity pLocal = new Entity() { ID = CheatMain.local };
                 Thread.Sleep(1);
 
-                if (menu.MainMenu[2].ElementState && CheatMain.GetAsyncKeyState(Keys.E) < 0) {
+                if (CheatMain.GetAsyncKeyState(Keys.E) < 0) {
 
-                    if (CheatMain.local == 0 || CheatMain.localhealth < 1)
+                    if (pLocal.ID == 0 || pLocal.m_iHealth() < 1)
                         continue;
 
                     crosshairid = CheatMain.Memory.ReadInt($"{CheatMain.ReadHex(CheatMain.local)}+{CheatMain.ReadHex(hazedumper.netvars.m_iCrosshairId)}");
